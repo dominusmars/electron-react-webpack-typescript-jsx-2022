@@ -26,6 +26,17 @@ module.exports = [
     },
   },
   {
+    test: /\.jsx?$/,
+    exclude: /(node_modules|\.webpack)/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/react', '@babel/preset-env'],
+        plugins: ['@babel/proposal-class-properties'],
+      },
+    },
+  },
+  {
     // CSS Loader
     test: /\.css$/,
     use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
